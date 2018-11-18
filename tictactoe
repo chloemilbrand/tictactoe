@@ -1,0 +1,209 @@
+import turtle as tu
+tu2 = tu.Turtle()
+height = 720
+width = 1280
+speed = 0
+thickness = 3
+squareThickness = 8
+lines = height / 6 * 4
+distance = height / 8
+tu.setup()
+tu.pensize()
+tu.speed()
+x = 0 + distance
+y = height / 2 - distance
+Coordinates = {
+    'GamefieldX': x,
+    'GamefieldY': y,
+    'x1': x,
+    'y1': y,
+    'x2': x + (lines / 3),
+    'y2': y,
+    'x3': x + (lines / 3) * 2,
+    'y3': y,
+    'x4': x,
+    'y4': y - (lines / 3),
+    'x5': x + (lines / 3),
+    'y5': y - (lines / 3),
+    'x6': x + (lines / 3) * 2,
+    'y6': y - (lines / 3),
+    'x7': x,
+    'y7': y - (lines / 3) * 2,
+    'x8': x + (lines / 3),
+    'y8': y - (lines / 3) * 2,
+    'x9': x + (lines / 3) * 2,
+    'y9': y - (lines / 3) * 2,
+}
+def circle(x, y):
+    tu.penup()
+    tu.goto(x + ((lines / 3) / 2), y - lines / 3 + lines / 3 / 6 * 1)
+    tu.pendown()
+    tu.seth(0)
+    tu.circle(lines / 3 / 6 * 2)
+
+def cross(x, y):
+        tu.penup()
+        tu.goto(x + (((lines / 3) / 6) * 1), y - (((lines / 3) / 6) * 1))
+        tu.seth(315)
+        tu.pendown()
+        tu.fd((((lines / 3) / 6) * 5.5))
+
+        tu.penup()
+        tu.goto(x + (((lines / 3) / 6) * 1), y - lines / 3 + (((lines / 3) / 6) * 1))
+        tu.seth(45)
+        tu.pendown()
+        tu.fd((((lines / 3) / 6) * 5.5))
+Box = {
+    'Box1': 0,
+    'Box2': 0,
+    'Box3': 0,
+    'Box4': 0,
+    'Box5': 0,
+    'Box6': 0,
+    'Box7': 0,
+    'Box8': 0,
+    'Box9': 0,
+}
+def gameboard(x, y):
+    global lines
+    boxwidth = lines / 3
+    d = 1
+    i = 0
+    while (i < 2):
+        tu.penup()
+        tu.goto(x, y - boxwidth * d)
+        tu.seth(0)
+        tu.pendown()
+        tu.fd(lines)
+        d = d + 1
+        i = i + 1
+    i = 0
+    d = 1
+    while (i < 2):
+        tu.penup()
+        tu.goto(x + boxwidth * d, y)
+        tu.seth(270)
+        tu.pendown()
+        tu.fd(lines)
+        d = d + 1
+        i = i + 1
+def Box1():
+    global fieldNumber
+    fieldNumber = 1
+
+
+def Box2():
+    global fieldNumber
+    fieldNumber = 2
+
+
+def Box3():
+    global fieldNumber
+    fieldNumber = 3
+
+
+def Box4():
+    global fieldNumber
+    fieldNumber = 4
+
+
+def Box5():
+    global fieldNumber
+    fieldNumber = 5
+
+
+def Box6():
+    global fieldNumber
+    fieldNumber = 6
+
+
+def Box7():
+    global fieldNumber
+    fieldNumber = 7
+
+
+def Box8():
+    global fieldNumber
+    fieldNumber = 8
+
+
+def Box9():
+    global fieldNumber
+    fieldNumber = 9
+
+
+def click():
+    global player
+
+Boxchosen = input("Enter your desired box number: ")
+
+
+if Boxchosen == 1:
+        Box1()
+if Boxchosen == 2:
+        Box2()
+if Boxchosen == 3:
+        Box3()
+if Boxchosen == 4:
+        Box4()
+if Boxchosen == 5:
+        Box5()
+if Boxchosen == 6:
+        Box6()
+if Boxchosen == 7:
+        Box7()
+if Boxchosen == 8:
+        Box8()
+if Boxchosen == 9:
+        Box9()
+
+def winner():
+    if Boxchosen['Box1'] == 1 and Boxchosen['Box2'] == 1 and Boxchosen['Box3'] == 1:
+        return 1
+    if Boxchosen['Box4'] == 1 and Boxchosen['Box5'] == 1 and Boxchosen['Box6'] == 1:
+        return 1
+    if Boxchosen['Box7'] == 1 and Boxchosen['Box8'] == 1 and Boxchosen['Box9'] == 1:
+        return 1
+    if Boxchosen['Box1'] == 1 and Boxchosen['Box4'] == 1 and Boxchosen['Box7'] == 1:
+        return 1
+    if Boxchosen['Box2'] == 1 and Boxchosen['Box5'] == 1 and Boxchosen['Box8'] == 1:
+        return 1
+    if Boxchosen['Box3'] == 1 and Boxchosen['Box6'] == 1 and Boxchosen['Box9'] == 1:
+        return 1
+    if Boxchosen['Box1'] == 1 and Boxchosen['Field5'] == 1 and Boxchosen['Field9'] == 1:
+        return 1
+    if Boxchosen['Box7'] == 1 and Boxchosen['Box5'] == 1 and Boxchosen['Box3'] == 1:
+        return 1
+
+    if Boxchosen['Box1'] == 2 and Boxchosen['Box2'] == 2 and Boxchosen['Box3'] == 2:
+        return 2
+    if Boxchosen['Box4'] == 2 and Boxchosen['Box5'] == 2 and Boxchosen['Box6'] == 2:
+        return 2
+    if Boxchosen['Box7'] == 2 and Boxchosen['Box8'] == 2 and Boxchosen['Box9'] == 2:
+        return 2
+    if Boxchosen['Box1'] == 2 and Boxchosen['Box4'] == 2 and Boxchosen['Box7'] == 2:
+        return 2
+    if Boxchosen['Box2'] == 2 and Boxchosen['Box5'] == 2 and Boxchosen['Box8'] == 2:
+        return 2
+    if Boxchosen['Box3'] == 2 and Boxchosen['Box6'] == 2 and Boxchosen['Box9'] == 2:
+        return 2
+    if Boxchosen['Box1'] == 2 and Boxchosen['Box5'] == 2 and Boxchosen['Box9'] == 2:
+        return 2
+    if Boxchosen['Box7'] == 2 and Boxchosen['Box5'] == 2 and Boxchosen['Box3'] == 2:
+        return 2
+winner = winner()
+
+if winner == 1:
+    tu2.clear()
+    tu2.penup()
+    tu2.goto(-lines, 0)
+    tu2.pendown()
+    tu2.write("Player 1 wins")
+if winner == 2:
+    tu2.clear()
+    tu2.penup()
+    tu2.goto(-lines, 0)
+    tu2.pendown()
+    tu2.write("Player 2 wins")
+
+tu.done()
